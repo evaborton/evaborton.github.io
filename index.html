@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title> Riddles </title>
+    <style>
+      body {background-color: #0000a0;}
+    </style>
+  </head>
+
+  <body>
+    <style>
+
+    .riddle_square {
+      position: relative;
+      background-color: #b3ffff;
+      width: 550px;
+      height: 300px;
+      left: 70px;
+      top: 200px;
+    }
+
+    .answer_square {
+      position: relative;
+      background-color: #b3ffff;
+      width: 550px;
+      height: 300px;
+      left: 770px;
+      top: -100px;
+    }
+    </style>
+
+    <div class="riddle_square"></div>
+    <div class="answer_square"></div>
+
+    <h1 style = "color:white;font-family:verdana;position:relative;top:-600px"><center> Are you ready to solve some riddles? </h1>
+
+    <script>
+      var riddles = [
+        'What breaks as you name it?',
+        'Give me food and I will live, <br/> give me water and I will die.',
+        'Give me food and I will live, <br/> give me water and I will spread.',
+        'A man pushes his car up to <br/> a hotel, pays the owner <br/>$2000, and leaves. Why?',
+        'I am at the beginning of everything <br/>and at the end of time <br/>and space. What am I?',
+        'I own keys that open no locks and <br/>hammers that pound no nails. <br/>What am I?',
+        'I shine bright enough to illuminate <br/>an entire room, yet I produce no <br/>light. What am I?',
+        'I have cities, but no houses. <br/>I have mountains, but no trees. <br/>I have water, but no fish. <br/>What am I?'
+      ];
+
+      var answers = [
+        'Silence.',
+        'Fire.',
+        'A grease fire.',
+        'He was playing Monopoly.',
+        "The letter 'e'.",
+        'A piano.',
+        'The moon.',
+        'A map.'
+      ];
+
+      var riddle_index = 0
+      var question = riddles[riddle_index]
+      var answer = 'answer'
+
+
+      function next() {
+        if (riddle_index < riddles.length - 1) {
+          riddle_index = riddle_index + 1;
+          question = riddles[riddle_index];
+          answer = '';
+          document.getElementById("riddle").innerHTML = question;
+          document.getElementById("answer").innerHTML = answer;
+        } else {
+          riddle_index = riddle_index + 1
+          question = 'Congratulations, you finished <br/>all the riddles!';
+          answer = '';
+          document.getElementById("riddle").innerHTML = question;
+          document.getElementById("answer").innerHTML = answer;
+        }
+
+      }
+
+
+      function get_answer() {
+        if (riddle_index < riddles.length) {
+          answer = answers[riddle_index];
+          document.getElementById("answer").innerHTML = answer;
+        } else {
+          answer = '';
+          document.getElementById("answer").innerHTML = answer;
+        }
+      }
+
+    </script>
+
+    <h2 style = "color:black;font-family:verdana;position:relative;left:285px;top:-465px"> Riddle </h2>
+    <h2 style = "color:black;font-family:verdana;position:relative;left:1000px;top:-517px"> Answer </h2>
+    <h3 id='riddle' style = "color:black;font-family:verdana;position:relative;left:180px;top:-480px"><center> </h3>
+    <h3 id='answer' style = "color:black;font-family:verdana;position:relative;left:840px;top:-520px"><center> </h3>
+
+
+    <script>
+      document.getElementById('riddle').innerHTML = riddles[0]
+    </script>
+
+    <button onclick="get_answer()" style = 'background-color:#9999ff;width:250px;height:50px;font-size:22px;position:relative;left:950px;bottom:300px'> Reveal Answer </button>
+    <button onclick="next()"style = 'background-color:#9999ff;width:250px;height:50px;font-size:22px;position:relative;left:-50px;bottom:300px'> Next Riddle </button>
+
+  </body>
+</html>
